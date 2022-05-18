@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zxx">
+{% load static %}
+
+<head>
+    <title>User Login</title>
+
+    <!-- Meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Google fonts -->
+    <link href="//fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <!-- CSS Stylesheet -->
+    <link rel="stylesheet" href="{% static 'login/css/style.css' %}" type="text/css" media="all" />
+        <script src="{% static 'login/js/fontawesome.js' %}"></script>
+
+
+</head>
+
+<body>
+  {% if messages %}
+        {% for message in messages %}
+         {% if message.tags %}
+  <script>
+         alert("{{ message }}")
+</script>
+        {% endif %}
+
+        {% endfor %}
+  {% endif %}
+    <div class="signinform">
+        <h1>Welcome User</h1>
+        <!-- container -->
+        <div class="container">
+            <!-- main content -->
+            <div class="w3l-form-info">
+                <div class="w3_info">
+                    <h2>Login</h2>
+                    <form action="/user_login/" method="post">
+                        {% csrf_token %}
+                        <div class="input-group">
+                            <span><i class="fas fa-user" aria-hidden="true"></i></span>
+                            <input type="email" name="email" placeholder="Email-Id" required=""/>
+                        </div>
+                        <div class="input-group">
+                            <span><i class="fas fa-key" aria-hidden="true"></i></span>
+                            <input type="password" name="password" placeholder="Password" required=""/>
+                        </div>
+                        <div class="form-row bottom">
+                            <div class="form-check">
+                                <input type="checkbox" id="remenber" name="remenber" value="remenber">
+                                <label for="remenber"> Remember me?</label>
+                            </div>
+                            <a href="#url" class="forgot">Forgot password?</a>
+                        </div>
+                        <button class="btn btn-primary btn-block" type="submit">Login</button>
+                    </form>
+                    <p class="continue"><span>or Login with</span></p>
+
+                    <p class="account">Don't have an account? <a href="/user_register">Sign up</a></p>
+                </div>
+            </div>
+            <!-- //main content -->
+        </div>
+        <!-- //container -->
+        <!-- footer -->
+
+        <!-- footer -->
+    </div>
+
+    <!-- fontawesome v5-->
+
+</body>
+
+</html>

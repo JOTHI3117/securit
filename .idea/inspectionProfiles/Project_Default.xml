@@ -1,0 +1,100 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="HtmlUnknownTag" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="myValues">
+        <value>
+          <list size="7">
+            <item index="0" class="java.lang.String" itemvalue="nobr" />
+            <item index="1" class="java.lang.String" itemvalue="noembed" />
+            <item index="2" class="java.lang.String" itemvalue="comment" />
+            <item index="3" class="java.lang.String" itemvalue="noscript" />
+            <item index="4" class="java.lang.String" itemvalue="embed" />
+            <item index="5" class="java.lang.String" itemvalue="script" />
+            <item index="6" class="java.lang.String" itemvalue="lable" />
+          </list>
+        </value>
+      </option>
+      <option name="myCustomValuesEnabled" value="true" />
+    </inspection_tool>
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <value>
+          <list size="9">
+            <item index="0" class="java.lang.String" itemvalue="mkl-fft" />
+            <item index="1" class="java.lang.String" itemvalue="pandas" />
+            <item index="2" class="java.lang.String" itemvalue="spacy" />
+            <item index="3" class="java.lang.String" itemvalue="thinc" />
+            <item index="4" class="java.lang.String" itemvalue="mkl-random" />
+            <item index="5" class="java.lang.String" itemvalue="srsly" />
+            <item index="6" class="java.lang.String" itemvalue="catalogue" />
+            <item index="7" class="java.lang.String" itemvalue="mkl-service" />
+            <item index="8" class="java.lang.String" itemvalue="numexpr" />
+          </list>
+        </value>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyPep8NamingInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoredErrors">
+        <list>
+          <option value="N801" />
+          <option value="N802" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyShadowingBuiltinsInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoredNames">
+        <list>
+          <option value="type" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="Django_Intro.login.models.Login.*" />
+          <option value="my_new.app.models.Employees.*" />
+          <option value="my_new.dyeing.models.Dyeing.*" />
+          <option value="my_new.scheduler.models.Scheduler.*" />
+          <option value="my_new.spinning.models.Spinning.*" />
+          <option value="my_new.weaving.models.Weaving.*" />
+          <option value="my_app.spinning.models.Spinning.*" />
+          <option value="my_new.app.models.Admin.*" />
+          <option value="my_new.spinning.models.Viewslot.*" />
+          <option value="app.models.App.*" />
+          <option value="app.models.Admin.*" />
+          <option value="spinning.models.Viewslot.*" />
+          <option value="app.models.Resources.*" />
+          <option value="spinning.models.Spinning.*" />
+          <option value="spinning.models.Resources.*" />
+          <option value="scheduler.models.Scheduler.*" />
+          <option value="weaving.models.Weaving.*" />
+          <option value="weaving.models.Viewslot.*" />
+          <option value="weaving.models.Resources.*" />
+          <option value="dyeing.models.Dyeing.*" />
+          <option value="surya.models.Admin.*" />
+          <option value="employee.models.User.*" />
+          <option value="employee.models.Consumer.*" />
+          <option value="app.models.Employee.*" />
+          <option value="surya.models.Table.*" />
+          <option value="director.models.Director.*" />
+          <option value="auctioneer.models.Auctioneer.*" />
+          <option value="customer.models.Customer.*" />
+          <option value="merchant.models.Merchant.*" />
+          <option value="vendor.models.Vendor.*" />
+          <option value="merchant.models.Product.*" />
+          <option value="auctioneer.models.Accept.*" />
+          <option value="director.models.Review_Product.*" />
+          <option value="auctioneer.models.Database.*" />
+          <option value="client.models.Client.*" />
+          <option value="client.models.Company_Details.*" />
+          <option value="company.models.Company.*" />
+          <option value="detection.models.Detection.*" />
+          <option value="employee.models.Employee.*" />
+          <option value="employee.models.Resume.*" />
+          <option value="hr.models.Hr.*" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>

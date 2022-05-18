@@ -1,0 +1,70 @@
+{% extends 'client/client_user.html' %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'table/css/style.css' %}">
+<body>
+<center>
+    <section class="ftco-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table myaccordion table-hover" id="accordion">
+                        <thead>
+                        <tr>
+                            <th>&nbsp;</th>
+                            <th>Company Name</th>
+                            <th>Name</th>
+                            <th>Email-id</th>
+                            <th>Format</th>
+                            <th>Weight</th>
+                            <th>File</th>
+                            <th>Status</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for i in name %}
+                        <tr data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false"
+                            aria-controls="collapseTwo" class="collapsed" style="color:blue">
+                            <th scope="row" style="color:red"></th>
+                            <td>{{i.company_name}}</td>
+                            <td>{{i.name}}</td>
+                            <td>{{i.email}}</td>
+                            <td>{{i.file_format}}</td>
+                            <td>{{i.weight}}</td>
+                            <td>{{i.file}}</td>
+
+                            <style>
+								  .button {
+								  background-color: #4CAF50; /* Green */
+								  border: none;
+								  color: white;
+								  padding: 5px 7px;
+								  text-align: center;
+								  text-decoration: none;
+								  display: inline-block;
+								  font-size: 16px;
+								  margin: 0px 0px;
+								  cursor: pointer;
+								  }
+								  .button1 {background-color: #f44336;}
+
+                            </style>
+
+
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <script src="{% static 'table/js/jquery.min.js' %}"></script>
+    <script src="{% static 'table/js/popper.js' %}"></script>
+    <script src="{% static 'table/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'table/js/main.js' %}"></script>
+</center>
+</body>
+
+{% endblock %}

@@ -1,0 +1,83 @@
+{% extends 'user/user_main.html' %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'table/css/style.css' %}">
+<body>
+<center>
+    <section class="ftco-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table myaccordion table-hover" id="accordion">
+                        <thead>
+                        <tr>
+                            <th>&nbsp;</th>
+                            <th>Company</th>
+                            <th>Company Email-ID</th>
+                            <th>Name</th>
+                            <th>Address</th>
+                            <th>Mobile</th>
+                            <th>Status</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for i in name %}
+                        <tr data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false"
+                            aria-controls="collapseTwo" class="collapsed" style="color:blue">
+                            <th scope="row" style="color:red">{{i.id}}</th>
+                            <td>{{i.company_name}}</td>
+                            <td>{{i.company_email}}</td>
+                            <td>{{i.name}}</td>
+                            <td>{{i.address}}</td>
+                            <td>{{i.contact}}</td>
+                            <style>
+								  .button {
+								  background-color: #4CAF50; /* Green */
+								  border: none;
+								  color: white;
+								  padding: 5px 7px;
+								  text-align: center;
+								  text-decoration: none;
+								  display: inline-block;
+								  font-size: 16px;
+								  margin: 0px 0px;
+								  cursor: pointer;
+								  }
+								  .button1 {background-color: #f44336;}
+
+                            </style>
+                            {% if i.accept == False %}
+                            <td style="display:inline">
+                                <div><a href="/client_accept/{{i.id}}">
+                                    <button class="button button">Accept</button>
+                                </a> <a href="/client_deny/{{i.id}}">
+                                    <button class="button button1">Deny</button>
+                                </a></div>
+                            </td>
+                            {% elif i.accept == True and i.send_link == False %}
+                            <td><a href="/send_link/{{i.id}}">
+                                <button class="button button">Question Link</button>
+                            </a></td>
+                            {% elif i.finish == True %}
+                            <td><a href="/send_link/{{i.id}}">
+                                <button class="button button">Send Data Center</button>
+                            </a></td>
+                            {% else %}
+                            <td>Link Send</td>
+                            {% endif %}
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="{% static 'table/js/jquery.min.js' %}"></script>
+    <script src="{% static 'table/js/popper.js' %}"></script>
+    <script src="{% static 'table/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'table/js/main.js' %}"></script>
+</center>
+</body>
+{% endblock %}

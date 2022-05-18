@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	{% load static %}
+	<meta charset="utf-8">
+	<title>User Question</title>
+	<!-- Mobile Specific Metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<!-- Font-->
+	<link rel="stylesheet" type="text/css" href="{% static 'question/css/montserrat-font.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'question/fonts/material-design-iconic-font/css/material-design-iconic-font.min.css' %}">
+	<!-- Main Style Css -->
+    <link rel="stylesheet" href="{% static 'question/css/style.css' %}"/>
+</head>
+<body class="form-v10">
+  {% if messages %}
+        {% for message in messages %}
+         {% if message.tags %}
+  <script>
+         alert("{{ message }}")
+</script>
+        {% endif %}
+
+        {% endfor %}
+  {% endif %}
+	<div class="page-content">
+		<div class="form-v10-content">
+			<form class="form-detail" action="/question_answer/{{id}}/" method="post" >
+				{% csrf_token %}
+				<div class="form-left">
+					<h2>General Infomation</h2>
+
+					<div class="form-row">
+						<input type="text" value="{{name.name}}" placeholder="Company" readonly required>
+					</div>
+					<div class="form-row">
+						<input type="text" value="{{name.company_name}}" placeholder="Company" readonly required>
+					</div>
+					<div class="form-row">
+						<input type="text" value="{{name.email}}" placeholder="Company" readonly required>
+					</div>
+					<div class="form-row">
+						<input type="text" value="{{name.contact}}" placeholder="Company" readonly required>
+					</div>
+					<div class="form-row">
+						<input type="text" value="{{name.address}}" placeholder="Company" readonly required>
+					</div>
+				</div>
+
+				<div class="form-right">
+					<h2>User Question</h2>
+					<div class="form-row">
+						<h4>Which database are use Specialized?</h4>
+						<input type="text" name="one"  placeholder="Text It Answer" required>
+					</div>
+					<div class="form-row">
+						<h4>Hoe many year's experience you have?</h4>
+						<input type="text" name="two"  placeholder="Text It Answer" required>
+					</div>
+					<div class="form-row">
+						<h4>Till now, How many project you have crossed?</h4>
+						<input type="text" name="three"  placeholder="Text It Answer" required>
+					</div>
+					<div class="form-row">
+						<h4>What was your current CTC?</h4>
+						<input type="text" name="four" placeholder="Text It Answer" required>
+					</div>
+					<div class="form-row">
+						<h4>What's your future growth in career</h4>
+						<input type="text" name="five" placeholder="Text It Answer" required>
+					</div>
+					<div class="form-row-last">
+						<input type="submit" name="register" class="register" value="Next">
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

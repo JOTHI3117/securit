@@ -1,0 +1,75 @@
+{% extends 'client/client_user.html' %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'table/css/style.css' %}">
+<style>
+.button {
+background-color: #4CAF50; /* Green */
+border: none;
+color: white;
+padding: 5px 7px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 16px;
+margin: 0px 0px;
+cursor: pointer;
+}
+.button1 {background-color: #f44336;}
+</style>
+<body>
+<center>
+    <section class="ftco-section">
+        <div class="">
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table myaccordion table-hover" id="accordion">
+                        <thead>
+                        <tr>
+                            <th>&nbsp;</th>
+                            <th>Company</th>
+                            <th>Company Email-ID</th>
+                            <th>Name</th>
+                            <th>File Name</th>
+                            <th>Files</th>
+                            <th>Status</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for i in data %}
+                        <tr data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false"
+                            aria-controls="collapseTwo" class="collapsed" style="color:blue">
+                            <th scope="row" style="color:red">{{i.id}}</th>
+                            <td>{{i.company_email.company_name}}</td>
+                            <td>{{i.company_email.company_email}}</td>
+                            <td>{{i.file_name}}</td>
+                            <td>{{i.company_email.contact}}</td>
+                            <td><a href="{{i.file.url}}" download style="color:red ">{{i.file}}</a></td>
+                            {% if i.finish == False and i.download == False and i.different == False %}
+                            <td><a href="/file_request/{{i.id}}">
+                                <button class="button button">Request</button>
+                            </a></td>
+                            {% elif i.finish == True %}
+                            <td>Request Send</td>
+                            {% elif i.download == True %}
+                            <td><a href="/file_download/{{i.id}}">
+                                <button class="button button">Download</button>
+                            </a></td>
+                            {% else %}
+                            <td style="color:red"><b><i>Try It, Gk Question</i></b></td>
+                            {% endif %}
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="{% static 'table/js/jquery.min.js' %}"></script>
+    <script src="{% static 'table/js/popper.js' %}"></script>
+    <script src="{% static 'table/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'table/js/main.js' %}"></script>
+</center>
+</body>
+{% endblock %}

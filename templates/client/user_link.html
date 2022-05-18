@@ -1,0 +1,78 @@
+{% extends 'client/client_user.html' %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'table/css/style.css' %}">
+<body>
+<center>
+    <section class="ftco-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table myaccordion table-hover" id="accordion">
+                        <thead align="center">
+                        <tr>
+                            <th>&nbsp;</th>
+                            <th>Person Name</th>
+                            <th>Company</th>
+                            <th>Company Email-ID</th>
+
+                            <th>Address</th>
+                            <th>Mobile</th>
+                            <th>Status</th>
+                        </tr>
+                        </thead>
+                        <tbody align="center">
+                        {% for i in name %}
+                        <tr data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false"
+                            aria-controls="collapseTwo" class="collapsed" style="color:blue">
+                            <th scope="row" style="color:red">{{i.id}}</th>
+                            <td>{{i.partner.name}}</td>
+                            <td>{{i.partner.company_name}}</td>
+                            <td>{{i.partner.company_email}}</td>
+                            <td>{{i.partner.address}}</td>
+                            <td>{{i.partner.contact}}</td>
+                            <style>
+								  .button {
+								  background-color: #4CAF50; /* Green */
+								  border: none;
+								  color: white;
+								  padding: 5px 7px;
+								  text-align: center;
+								  text-decoration: none;
+								  display: inline-block;
+								  font-size: 16px;
+								  margin: 0px 0px;
+								  cursor: pointer;
+								  }
+								  .button1 {background-color: #f44336;}
+
+
+                            </style>
+                            {% if i.accept == True and i.send_link == False %}
+                            <td style="color:red"><b>Accept..Wait for link</b></td>
+                            {% elif i.accept == True and i.send_link == True and i.answer == False %}
+                            <td><a href="/question_answer/{{i.id}}">
+                                <button class="button button">Question Link</button>
+                            </a></td>
+                            {% else %}
+                            <td>
+                                <a href="/client_view_files/{{i.id}}">
+                                    <button class="button button">View Files</button>
+                                </a></td>
+                            {% endif %}
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="{% static 'table/js/jquery.min.js' %}"></script>
+    <script src="{% static 'table/js/popper.js' %}"></script>
+    <script src="{% static 'table/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'table/js/main.js' %}"></script>
+</center>
+</body>
+{% endblock %}

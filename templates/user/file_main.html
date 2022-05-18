@@ -1,0 +1,90 @@
+{% extends 'user/user_main.html' %}
+{% load static %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'table/css/style.css' %}">
+<body>
+<center>
+    <section class="ftco-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table myaccordion table-hover" id="accordion">
+                        <thead align="center">
+                        <tr>
+                            <th>&nbsp;</th>
+                            <th>Company</th>
+                            <th>Name</th>
+                            <th>Format</th>
+                            <th>Size</th>
+                            <th>File Link</th>
+                            <th>Cost</th>
+                            <th>Status</th>
+                        </tr>
+                        </thead>
+                        <tbody align="center">
+                        {% for i in name %}
+                        <tr data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false"
+                            aria-controls="collapseTwo" class="collapsed" style="color:blue">
+                            <th scope="row" style="color:red">{{i.id}}</th>
+                            <td>{{i.company_email.company_name}}</td>
+                            <td>{{i.company_email.name}}</td>
+                            <td>{{i.file_format}}</td>
+                            <td>{{i.file_weight}}</td>
+                            {% if i.files == True %}
+                            <td>{{i.file}}</td>
+                            {% else %}
+                            <td style="color:red"><b>None</b></td>
+                            {% endif %}
+                            <td>₹{{i.file_amount}}</td>
+                            <style>
+								  .button {
+								  background-color: #4CAF50; /* Green */
+								  border: none;
+								  color: white;
+								  padding: 5px 7px;
+								  text-align: center;
+								  text-decoration: none;
+								  display: inline-block;
+								  font-size: 16px;
+								  margin: 0px 0px;
+								  cursor: pointer;
+								  }
+								  .button1 {background-color: #f44336;}
+                            </style>
+                            {% if i.accept_amount == False and i.fix_amount == True %}
+                            <td>
+                                <div><a href="/price_accept/{{i.id}}">
+                                    <button class="button button">Accept</button>
+                                </a><a href="/price_deny/{{i.id}}">
+                                    <button class="button button1">Deny</button>
+                                </a></div>
+                            </td>
+                            {% elif i.accept_amount == True and i.files == False and i.fix_amount == True %}
+                            <td><a href="/file_upload/{{i.id}}">
+                                <button class="button button">Upload File</button>
+                            </a></td>
+                            {% elif i.accept_amount == True and i.files == True and i.fix_amount == True %}
+                            <td><a href="/requests_file/{{i.id}}">
+                                <button class="button button">Requests</button>
+                            </a></td>
+                            {% else %}
+                            <td style="color:red"><b>Wait for update</b></td>
+                            {% endif %}
+                        </tr>
+                        {% endfor %}
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <script src="{% static 'table/js/jquery.min.js' %}"></script>
+    <script src="{% static 'table/js/popper.js' %}"></script>
+    <script src="{% static 'table/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'table/js/main.js' %}"></script>
+</center>
+</body>
+{% endblock %}

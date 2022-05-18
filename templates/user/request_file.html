@@ -1,0 +1,73 @@
+{% extends 'user/user_main.html' %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'table/css/style.css' %}">
+<body>
+<center>
+    <section class="ftco-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table myaccordion table-hover" id="accordion">
+                        <thead>
+                        <tr>
+                            <th>&nbsp;</th>
+                            <th>Company</th>
+                            <th>Company Email-ID</th>
+                            <th>Name</th>
+                            <th>File Name</th>
+                            <th>Files Link</th>
+                            <th>Status</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for i in name %}
+                        <tr data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false"
+                            aria-controls="collapseTwo" class="collapsed" style="color:blue">
+                            <th scope="row" style="color:red">{{i.id}}</th>
+                            <td>{{i.request.company_email.company_name}}</td>
+                            <td>{{i.request.company_email.company_email}}</td>
+                            <td>{{i.request.company_email.name}}</td>
+                            <td>{{i.request.file_name}}</td>
+                            <td><a href="{{i.request.file.url}}" download style="color:red">{{i.request.file}}</a></td>
+                            <style>
+								  .button {
+								  background-color: #4CAF50; /* Green */
+								  border: none;
+								  color: white;
+								  padding: 5px 7px;
+								  text-align: center;
+								  text-decoration: none;
+								  display: inline-block;
+								  font-size: 16px;
+								  margin: 0px 0px;
+								  cursor: pointer;
+								  }
+								  .button1 {background-color: #f44336;}
+                            </style>
+                            {% if i.accept == True and i.download == False%}
+                            <td><a href="/view_decrypt_file/{{i.id}}">
+                                <button class="button button">Download</button>
+                            </a></td>
+                            {% elif i.download == True %}
+                            <td style="color:red"><b>File Download</b></td>
+                            {% else %}
+                            <td style="color:red"><b>Wait for update</b></td>
+                            {% endif %}
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <script src="{% static 'table/js/jquery.min.js' %}"></script>
+    <script src="{% static 'table/js/popper.js' %}"></script>
+    <script src="{% static 'table/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'table/js/main.js' %}"></script>
+</center>
+</body>
+
+{% endblock %}

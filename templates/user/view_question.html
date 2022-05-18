@@ -1,0 +1,66 @@
+{% extends 'user/user_main.html' %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'table/css/style.css' %}">
+<body>
+<center>
+    <section class="ftco-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table myaccordion table-hover" id="accordion">
+                        <thead>
+                        <tr>
+                            <th>Which database are use Specialized?</th>
+                            <th>{{one}}</th>
+                        </tr>
+                        <tr>
+                            <th>How many year's experience you have?</th>
+                            <th>{{two}}</th>
+                        </tr>
+                        <tr>
+                            <th>Till now, How many project you have crossed?</th>
+                            <th>{{three}}</th>
+                        </tr>
+                        <tr>
+                            <th>What was your current CTC?</th>
+                            <th>{{four}}</th>
+                        </tr>
+                        <tr>
+                            <th>What's your future growth in career</th>
+                            <th>{{five}}</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <style>
+								  .button {
+								  background-color: #4CAF50; /* Green */
+								  border: none;
+								  color: white;
+								  padding: 5px 7px;
+								  text-align: center;
+								  text-decoration: none;
+								  display: inline-block;
+								  font-size: 16px;
+								  margin: 0px 0px;
+								  cursor: pointer;
+								  }
+								  .button1 {background-color: #f44336;}
+                        </style>
+                        <a href="/view_user_question"><button class="button button">Back</button></a>
+                        </tbody>
+
+
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <script src="{% static 'table/js/jquery.min.js' %}"></script>
+    <script src="{% static 'table/js/popper.js' %}"></script>
+    <script src="{% static 'table/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'table/js/main.js' %}"></script>
+</center>
+</body>
+{% endblock %}
